@@ -335,6 +335,8 @@ sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.area<0)/post_s
 
 
 
+
+
 # -----------------------------------------------
 # finite sample size
 # fss 
@@ -344,4 +346,18 @@ sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.area<0)/post_s
 summ_res_fss<-lapply (list_model_res, function (i) 
   i[[1]]$summary [grep ("fss",rownames(i[[1]]$summary )),c("mean", "2.5%","97.5%")])
 do.call(rbind,summ_res_fss)
+
+
+
+# average detection
+
+meanP<-lapply (list_model_res, function (i) 
+  i$summary [grep ("mean.p",rownames(i$summary )),c("mean", "2.5%","97.5%")])
+do.call(rbind,meanP)
+
+
+res_mod[[1]]$mean$mean.p
+res_mod[[2]]$mean$mean.p
+res_mod[[3]]$mean$mean.p
+res_mod[[4]]$mean$mean.p
 
