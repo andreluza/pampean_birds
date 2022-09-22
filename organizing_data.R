@@ -1,6 +1,7 @@
 # pacotes necessarios
 require (reshape)
 require(unmarked)
+require(here)
 
 # funcoes
 source ("functions.R")

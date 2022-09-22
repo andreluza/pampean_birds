@@ -257,6 +257,9 @@ dev.off()
 
 
 
+# mean psi
+round(list_model_res$ammo_hume[[1]]$summary[grep("psi",rownames(list_model_res$ammo_hume[[1]]$summary)),],2)
+
 # probabilities
 # ammo humeralis
 

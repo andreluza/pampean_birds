@@ -1,8 +1,26 @@
 # MODELING
-
+require(here)
+require(unmarked)
 load(here("output", "organized_data.RData"))
 
 
+
+# average covariate values
+apply (cbind (grassland, agriculture, tree),2,mean)
+apply (cbind (grassland, agriculture, tree),2,sd)
+
+
+# temp 
+mean(det_table_temperatura,na.rm=T)
+sd(det_table_temperatura,na.rm=T)
+
+# humidity 
+mean(det_table_umidade,na.rm=T)
+sd(det_table_umidade,na.rm=T)
+
+# detection area 
+mean(det_table_veg$area,na.rm=T)
+sd(det_table_veg$area,na.rm=T)
 
 
 # ----------------
@@ -112,13 +130,15 @@ cat ("
 	# site occupancy probability
 	mean.psi <- mean (psi[])
   fss <- sum (z[])
+  mean.p <- mean(p[,])
       
       }
      ", fill=T)
 sink()
 
 # params to monitor
-params <- c("mean.psi","fss","beta.grass","beta.agri","beta.tree",
+params <- c("mean.psi","fss","mean.p",
+            "beta.grass","beta.agri","beta.tree",
             "alpha.temp","alpha.umid","alpha.area",
             "fit.actual","fit.sim","bpv")
 
@@ -249,13 +269,13 @@ cat ("
 	# site occupancy probability
 	mean.psi <- mean (psi[])
   fss <- sum (z[])
-      
+      mean.p <- mean(p[,])
       }
      ", fill=T)
 sink()
 
 # params to monitor
-params <- c("mean.psi","fss","beta.grass",
+params <- c("mean.psi","fss","beta.grass","mean.p",
             "alpha.temp","alpha.umid","alpha.area",
             "fit.actual","fit.sim","bpv")
 
@@ -382,13 +402,13 @@ cat ("
   	# site occupancy probability
   	mean.psi <- mean (psi[])
     fss <- sum(z[])
-        
+     mean.p <- mean(p[,])   
       }
      ", fill=T)
 sink()
 
 # params to monitor
-params <- c("mean.psi","fss",
+params <- c("mean.psi","fss","mean.p",
             "alpha.temp","alpha.umid","alpha.area",
             "fit.actual","fit.sim","bpv")
 
