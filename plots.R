@@ -96,8 +96,9 @@ list_model_res <- lapply (seq(1,length(res_mod_null)), function (i) {
   
   
 })
+
 # list with detection data
-list_files <- list.files(pattern="dados_detec_*")
+list_files <- list.files(here ("data"), pattern= "dados_detec_*")
 
 
 # model selection based on BPV
@@ -208,7 +209,7 @@ colnames(summ_res)[1:3]<- c("Mean","Lower","Upper")
 
 # adjust covariate names
 summ_res$Covariate[grep("alpha.temp",summ_res$Covariate)]<- "Temperature"
-summ_res$Covariate[grep("alpha.umid",summ_res$Covariate)]<- "Umidity"
+summ_res$Covariate[grep("alpha.umid",summ_res$Covariate)]<- "Humidity"
 summ_res$Covariate[grep( "alpha.area",summ_res$Covariate)]<- "Detection area"
 
 # plot
@@ -291,10 +292,49 @@ sum(list_model_res$dados_detec_ammo_hume.csv[[1]]$sims.list$beta.tree<0)/post_sa
 sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$beta.tree<0)/post_samp_size
 sum(list_model_res$dados_detec_zono_cape.csv[[1]]$sims.list$beta.tree<0)/post_samp_size
 
+
+
+
+# detection
+
+# posterior distribution sample size
+## positive
+sum(list_model_res$dados_detec_ammo_hume.csv[[1]]$sims.list$alpha.temp>0)/post_samp_size
+sum(list_model_res$dados_detec_embe_herb.csv[[1]]$sims.list$alpha.temp>0)/post_samp_size
+sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.temp>0)/post_samp_size
+sum(list_model_res$dados_detec_zono_cape.csv[[1]]$sims.list$alpha.temp>0)/post_samp_size
+
+## negative
+sum(list_model_res$dados_detec_ammo_hume.csv[[1]]$sims.list$alpha.temp<0)/post_samp_size
+sum(list_model_res$dados_detec_embe_herb.csv[[1]]$sims.list$alpha.temp<0)/post_samp_size
+sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.temp<0)/post_samp_size
+sum(list_model_res$dados_detec_zono_cape.csv[[1]]$sims.list$alpha.temp<0)/post_samp_size
+
+
+# humidity
+## positive
+sum(list_model_res$dados_detec_ammo_hume.csv[[1]]$sims.list$alpha.umid>0)/post_samp_size
+sum(list_model_res$dados_detec_embe_herb.csv[[1]]$sims.list$alpha.umid>0)/post_samp_size
+sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.umid>0)/post_samp_size
+sum(list_model_res$dados_detec_zono_cape.csv[[1]]$sims.list$alpha.umid>0)/post_samp_size
+
+
+# detection area
+## positive
+sum(list_model_res$dados_detec_ammo_hume.csv[[1]]$sims.list$alpha.area>0)/post_samp_size
+sum(list_model_res$dados_detec_embe_herb.csv[[1]]$sims.list$alpha.area>0)/post_samp_size
+sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.area>0)/post_samp_size
+sum(list_model_res$dados_detec_zono_cape.csv[[1]]$sims.list$alpha.area>0)/post_samp_size
+
+# negative
+sum(list_model_res$dados_detec_leis_supe.csv[[1]]$sims.list$alpha.area<0)/post_samp_size
+
+
+
+
 # -----------------------------------------------
 # finite sample size
-# fss eh o parametro de interesse
-
+# fss 
 
 
 
