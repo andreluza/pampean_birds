@@ -1,10 +1,7 @@
-# pacotes necessarios
-require (reshape)
-require(unmarked)
-require(here)
 
 # funcoes
-source ("functions.R")
+source ("R/functions.R")
+source ("R/packages.R")
 
 # ---------------------------------------------------#
 # organizacao dos dados para os modelos de ocupacao

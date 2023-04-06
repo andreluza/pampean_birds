@@ -1,6 +1,5 @@
 # MODELING
-require(here)
-require(unmarked)
+source ("R/packages.R")
 load(here("output", "organized_data.RData"))
 
 
@@ -172,7 +171,7 @@ res_mod <- lapply (list_det_data, function (i) { # for each species, run the mod
   inits <- function () {list(z=zst)}
   
   # call jags and run the model
-  require(jagsUI)
+  
   m1 <- jags (jags.data,
               inits,
               params,
@@ -307,7 +306,7 @@ res_mod_grass <- lapply (list_det_data, function (i) { # for each species, run t
   inits <- function () {list(z=zst)}
   
   # call jags and run the model
-  require(jagsUI)
+
   m1 <- jags (jags.data,
               inits,
               params,
@@ -439,7 +438,7 @@ res_mod_null <- lapply (list_det_data, function (i) { # for each species, run th
   inits <- function () {list(z=zst)}
   
   # call jags and run the model
-  require(jagsUI)
+
   m1 <- jags (jags.data,
               inits,
               params,
