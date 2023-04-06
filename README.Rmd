@@ -1,0 +1,48 @@
+---
+title: "Landscape and the occurrence of Pampean birds: modeling site occupancy through acoustic detection"
+author: "P. Paludo, A.L. Luza, M.J.R. Pereira"
+date: "2023-04-06"
+output: html_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The models' design looks like:
+
+# Global model
+
+```{r comment='', echo = F}
+cat(readLines('model_acoustics.txt'), sep = '\n')
+``` 
+# Grassland model
+
+
+```{r comment='', echo = F}
+cat(readLines('model_acoustics_grass.txt'), sep = '\n')
+``` 
+
+
+# Null model
+
+```{r comment='', echo = F}
+cat(readLines('model_acoustics_null.txt'), sep = '\n')
+``` 
+
+
+### This paper was produced using the following software and associated packages:
+
+```{r pressure, echo=F,warning=F,message=F}
+
+source("R/packages.R")
+sessionInfo()
+
+
+```
