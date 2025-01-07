@@ -1,0 +1,50 @@
+---
+title: "SUPP_INFO_A7"
+author: "ALLuza"
+date: "2025-01-06"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix S7: Supplementary results
+
+### Output of the model with $\psi(.)_p(A)$
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+source ("R/3.SUPP_A7_psi(.)_p(A).R")
+
+
+assem_res
+
+```
+Fig. S7.1: Detection and site occupancy probability of grassland birds in 69 sites located in the Pampa Biome, Southern Brazil. The point indicates the point-estimate (posterior distribution average across 1.500 draws) of each parameter. The violins depict estimates of each posterior distribution draw./
+
+
+<br>
+<br>
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+
+print(area_pred)
+
+
+
+```
+Fig. S7.2: Relationship between detection area and the detection probability of each species. The blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+

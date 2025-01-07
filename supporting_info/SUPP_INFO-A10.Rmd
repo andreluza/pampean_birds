@@ -1,0 +1,128 @@
+---
+title: "SUPP_INFO_A10"
+author: "ALLuza"
+date: "2025-01-06"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix S10: Supplementary results
+
+### Output of the model with $\psi(D-R-A-T)_p(T-H)$
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+source ("R/3.SUPP_A10_psi(D-R-A-T)_p(T-H).R")
+
+
+print(AMM_HUMM)
+
+
+
+```
+Fig. S10.1: Relationship between site covariates and the site occupancy probability of *Ammodramus humeralis*. The light blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+
+print(EM_HER)
+
+
+
+```
+Fig. S10.2: Relationship between site covariates and the site occupancy probability of *Emberezoides herbicola*. The light blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+print(LEI_SUP)
+
+
+
+```
+Fig. S10.3: Relationship between site covariates and the site occupancy probability of *Leistes superciliaris*. The light blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+print(ZON_CAP)
+
+
+
+```
+
+Fig. S10.4: Relationship between site covariates and the site occupancy probability of *Zonotrichia capensis*. The light blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+assem_res
+
+```
+Fig. S10.5: Detection and site occupancy probability of grassland birds in 69 sites located in the Pampa Biome, Southern Brazil. The point indicates the point-estimate (posterior distribution average across 1.500 draws) of each parameter. The violins depict estimates of each posterior distribution draw./
+
+
+<br>
+<br>
+
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+
+print(temp_pred)
+
+
+
+```
+Fig. S10.6: Relationship between temperature and the detection probability of each species. The blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
+
+
+```{r , echo=FALSE,results='hide', fig.height=6.5,fig.width=8.5,fig.margin=F,fig.align="center", message=F,warning=F,out.width="80%",out.height="80%",dpi=600}
+
+
+
+
+print(umid_pred)
+
+
+
+```
+Fig. S10.7: Relationship between humidity and the detection probability of each species. The blue line depicts the average relationship across the 1,500 posterior distribution draws of model parameters, and the gray lines depict the relationship for each posterior distribution draw./
+
+<br>
+<br>
+
