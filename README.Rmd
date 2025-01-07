@@ -1,7 +1,7 @@
 ---
 title: "Landscape and the occurrence of Pampean birds: modeling site occupancy through acoustic detection"
 author: "P. Paludo, A.L. Luza, M.J.R. Pereira"
-date: "2023-04-06"
+date: "2024-01-07"
 output: github_document
 ---
 
@@ -15,28 +15,42 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+# List of folders
 
-
-## The models' design looks like:
-
-### Global model
-
-```{r comment='', echo = F}
-cat(readLines('model_acoustics.txt'), sep = '\n')
-``` 
-### Grassland model
-
-
-```{r comment='', echo = F}
-cat(readLines('model_acoustics_grass.txt'), sep = '\n')
-``` 
-
-
-### Null model
-
-```{r comment='', echo = F}
-cat(readLines('model_acoustics_null.txt'), sep = '\n')
-``` 
+Root\
+|\
+|- BUGS_code: The 12 models were written in BUGS language and are stored within this folder;\
+|\
+|- data: Data used in the analyzes. We used an imputed version of data in which missing observation covariates (temperature, moisture) were imputed by hand based on neighbor sites and sampling days (made by P. Paludo)\
+|\
+|- figures: main figures;\
+|\
+|- output: processed data and model output;\
+|------ model_output.RData: output produced by running the code "2.models.R"\
+|------ model_output_det.RData: output produced by running the code "2a.modelsDetection.R"\
+|------ organized_data.RData: output (occupancy data) produced by running the code "1.organizing_data.R"\
+|\
+|- R: R code as follows:\
+|------ "functions.R": useful functions to formatting the occupancy data\
+|------ "packages.R": required R packages\
+|------ "1.organizing_data.R": organize occupancy data (processed data)\
+|------ "2.models.R": BUGS models and analyzes - change occupancy covariates\
+|------ "2a.modelsDetection.R": BUGS models and analyzes - mostly changing the combination of detection covariates\
+|------ "3.MAIN_model_selection_figs.R": code to produce results shown in the main text\
+|------ "3.SUPP_A10_psi(D-R-A-T)_p(T-H).R": Code for appendix A10\
+|------ "3.SUPP_A11_psi(D-R-A-T)_p(A).R": Code for appendix A11\
+|------ "3.SUPP_A12_psi(D-R-A-T)_p(Tu).R": Code for appendix A12\
+|------ "3.SUPP_A13_psi(D-R-A-T)_p(.).R": Code for appendix A13\
+|------ "3.SUPP_A2_psi(D-R-A-T)_p(T-H-A-Tu).R": Code for appendix A2\
+|------ "3.SUPP_A3_psi(D-R)_p(T-H-A-Tu).R": Code for appendix A3\
+|------ "3.SUPP_A4_psi(A-T)_p(T-H-A-Tu).R": Code for appendix A4\
+|------ "3.SUPP_A5_psi(.)_p(T-H-A-Tu).R": Code for appendix A5\
+|------ "3.SUPP_A6_psi(.)_p(.).R": Code for appendix A6\
+|------ "3.SUPP_A7_psi(.)_p(A).R": Code for appendix A7\
+|------ "3.SUPP_A8_psi(.)_p(Tu).R": Code for appendix A8\
+|------ "3.SUPP_A9_psi(.)_p(T-H).R": Code for appendix A9\
+|\
+|- supporting_info: Rmarkdown and docx files showing the supporting information associated to the article\
 
 
 ## This paper was produced using the following software and associated packages:
