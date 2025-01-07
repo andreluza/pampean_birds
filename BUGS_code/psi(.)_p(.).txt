@@ -1,0 +1,63 @@
+
+     
+    model {
+       
+        # set priors
+        # site occupancy
+        psi ~ dunif (0,1)
+        p  ~ dunif (0,1)
+        
+        # ----------------------
+        # model likelihood
+        # site-occupancy model (first level)
+        for (i in 1:nsites) {
+        
+          z[i] ~ dbern (psi)
+          
+        }
+         
+         
+       # ----------------------------------- #
+       # detection model (second level)
+       #----------------------------------- #
+       
+       # likelihood 
+       
+        for (k in 1:nobs) {
+          
+             y[k] ~ dbern (z[site[k]] * p)
+             
+          }
+        
+  # goodness of fit
+	# predictive posterior checks
+	# chi squared discrepancy
+
+	for (k in 1:nobs) {
+
+	       y.sim [k] ~ dbern (z[site[k]]*p) # simulate data under the model
+	       e.sim [k] <- z[site[k]]*p  # expected data under the model
+	       # chi squared discrepancy for the actual data
+	       chi2.actual[k] <- pow((y[k]-e.sim[k]),2)/(e.sim[k]+e)
+	       # chi squared discrepancy for the simulated data
+	       chi2.sim[k] <- pow((y.sim[k]-e.sim[k]),2)/(e.sim[k]+e)
+		     # 'e' to avoid division by zero
+
+
+	   }
+
+      # derived params
+    	# chi 2 discrepancy across data
+    	fit.actual <- sum ( chi2.actual)       
+    	fit.sim <- sum ( chi2.sim)
+    	# Bayesian p-value, compare actual and simulated data
+    	bpv <- step (fit.sim - fit.actual)
+    
+    	# site occupancy probability
+    	mean.psi <- mean (psi)
+      fss <- sum (z)
+      mean.p <- mean(p)
+          
+     }
+      
+     
