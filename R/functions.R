@@ -4,12 +4,16 @@
 funcao_ocasioes <- function (sites, dados) {
   
   tab_per_site <- lapply (sites, function (i) {
+    
     # pegar cada sitio   
     subset_sitio <-  dados[which(dados$sitio == i),]
+    
     # extrair as datas de amostragem
     datas_amostragem <- unique(subset_sitio$transDate)[order (unique(subset_sitio$transDate))]
+    
     # criar uma seq para estas datas (que sera o dia de amostragem)
     dia_de_amostragem <- seq_along(datas_amostragem)
+    
     # tabela com data e dia 
     data_dia <- data.frame (data=datas_amostragem,
                             dia = dia_de_amostragem)
@@ -19,6 +23,7 @@ funcao_ocasioes <- function (sites, dados) {
       
       # subset de sitio e data
       subset_sitio_data <- subset_sitio [which(subset_sitio$transDate == data_dia$data[k]),]
+      
       # colar dados de dia e numero de ocasioes
       subset_sitio_data <- cbind (subset_sitio_data, 
                                   dia = data_dia$dia[k], # saber qual foi o dia de amostagem
@@ -28,6 +33,14 @@ funcao_ocasioes <- function (sites, dados) {
       subset_sitio_data$combDiaHora <- (paste(subset_sitio_data$dia,
                                              subset_sitio_data$record,
                                              sep="-"))
+      
+      
+      #  colar  a combinacao de dia e hora redonda
+      subset_sitio_data$horaRedonda <- substr(subset_sitio_data$horario,1,2)
+      subset_sitio_data$combDiaHoraRedonda <- (paste(subset_sitio_data$dia,
+                                                     subset_sitio_data$horaRedonda,
+                                              sep="-"))
+      
       # colar a combinacao de dia e turno
       subset_sitio_data$combDiaTurno <- (paste(subset_sitio_data$dia,
                                               subset_sitio_data$HorarioAlternativo,
